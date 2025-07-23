@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&family=Nunito:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Nunito', 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f6fb;
+  color: #1a1a1a;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.App.dark {
+  background-color: #282a36;
+  color: #e7e7f6;
+}
+
+.App {
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', 'Nunito', 'Quicksand', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: #5e2ca5;
+  text-shadow: 0 2px 8px rgba(94,44,165,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.money-emoji {
+  font-size: 2.2rem;
+  vertical-align: middle;
+}
+
+.App.dark .header {
+  color: #c48fff;
+  text-shadow: 0 2px 8px rgba(196,143,255,0.07);
+}
+.analytics h2 {
+  font-size: 1.3rem;
+  font-family: 'Montserrat', 'Nunito', 'Quicksand', sans-serif;
+  color: #5e2ca5;
+  margin-bottom: 10px;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  letter-spacing: 1px;
+}
+.analytics h2::after {
+  content: ":";
+  margin-left: 2px;
+}
+
+.App.dark .analytics h2 {
+  color: #c48fff;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: linear-gradient(90deg, #ff7f7f 0%, #7fafff 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 6px 13px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.3s, box-shadow 0.3s;
+  z-index: 10;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+}
+
+.toggle-button:hover {
+  background: linear-gradient(90deg, #7fafff 0%, #ff7f7f 100%);
+  box-shadow: 0 4px 16px rgba(94,44,165,0.13);
+  border-radius: 20px; /* More rounded edges on hover */
+}
+
+form.expense-form {
+  max-width: 340px;
+  margin: 30px auto 0 auto;
+  padding: 22px 18px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+}
+
+.App.dark .expense-form {
+  background: #343746;
+  color: #e7e7f6;
+}
+
+.expense-input {
+  padding: 9px 12px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+  background: #f7f6fb;
+  transition: border 0.2s;
+}
+
+.expense-input:focus {
+  border-color: #5e2ca5;
+  outline: none;
+}
+
+.App.dark .expense-input {
+  background: #23232a;
+  color: #e7e7f6;
+  border-color: #c48fff;
+}
+
+.add-btn {
+  background-color: #5e2ca5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100px;
+  align-self: flex-end;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background-color: #7fafff;
+}
+
+.analytics-expenses-container {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 38px;
+}
+
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 340px;
+  min-width: 260px;
+}
+
+.expense-entry {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+  font-size: 1rem;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+}
+
+.App.dark .expense-entry {
+  background: #343746;
+  color: #e7e7f6;
+}
+
+.expense-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.expense-name {
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #5e2ca5;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+}
+
+.App.dark .expense-name {
+  color: #c48fff;
+}
+
+.expense-amount {
+  font-size: 0.98rem;
+  color: #a445f2;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+}
+
+.App.dark .expense-amount {
+  color: #ffbb78;
+}
+
+.expense-category {
+  font-size: 0.92rem;
+  color: #7fafff;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+}
+
+.App.dark .expense-category {
+  color: #ff7f7f;
+}
+
+.delete-btn {
+  background-color: #b9b5fa; /* Soft teal */
+  color: #5e2ca5;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #ff7f7f; /* Soft red on hover */
+  color: #fff;
+}
+
+.category-food {
+  border-left: 6px solid #ff7f7f;
+}
+
+.category-transport {
+  border-left: 6px solid #7fafff;
+}
+
+.category-other {
+  border-left: 6px solid #7fff7f;
+}
+
+.category-beverages {
+  border-left: 6px solid #c48fff;
+}
+
+.analytics {
+  min-width: 340px;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 24px 18px;
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+}
+
+.App.dark .analytics {
+  background: #343746;
+  color: #e7e7f6;
+}
+
+
+
+@media (max-width: 900px) {
+  .analytics-expenses-container {
+    flex-direction: column;
+    align-items: center;
+  }
+    .analytics, .expense-list {
+    max-width: 98vw;
+    min-width: 0;
+  }
+}
+.recharts-tooltip-wrapper {
+  background: #e864ce !important; /* Soft creamy yellow */
+  color: #5e2ca5 !important;
+  /* Remove border-radius if you want it square */
+  border-radius: 0 !important;
+}
+
+.App.dark .recharts-tooltip-wrapper {
+  background: #343746 !important; /* Soft dark for dark mode */
+  color: #ffbb78 !important;
+  border-radius: 0 !important;
+}
