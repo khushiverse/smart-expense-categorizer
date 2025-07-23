@@ -1,68 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
 const COLORS = ['#FF6B6B', '#4D96FF', '#5FD068', '#FFC75F', '#C34A36'];
 
-function Analytics() {
+function Analytics({ expenses, darkMode }) {
   const [data, setData] = useState([]);
-    const [totalSpent, setTotalSpent] = useState(0);
-    const [topCategory, setTopCategory] = useState('');
-    const [topCategoryAmount, setTopCategoryAmount] = useState(0);
+  const [totalSpent, setTotalSpent] = useState(0);
+  const [topCategory, setTopCategory] = useState('');
+  const [topCategoryAmount, setTopCategoryAmount] = useState(0);
 
   useEffect(() => {
-    const fetchExpenses = async () => {
-      try {
-        const res = await axios.get('http://localhost:5002/api/expenses');
-        const expenses = res.data.expenses;
-        console.log("Fetched expenses:", expenses);
+    const categoryTotals = {};
+    expenses.forEach((exp) => {
+      const cat = exp.category || 'Other';
+      categoryTotals[cat] = (categoryTotals[cat] || 0) + exp.amount;
+    });
 
+    const formatted = Object.entries(categoryTotals).map(([key, value]) => ({
+      name: key,
+      value
+    }));
 
-        // Count total amount per category
-        const categoryTotals = {};
-        expenses.forEach((exp) => {
-          const cat = exp.category || 'Other';
-          categoryTotals[cat] = (categoryTotals[cat] || 0) + exp.amount;
-        });
+    setData(formatted);
+    setTotalSpent(expenses.reduce((acc, curr) => acc + curr.amount, 0));
 
-        // Convert to array for Recharts
-        const formatted = Object.entries(categoryTotals).map(([key, value]) => ({
-          name: key,
-          value
-        }));
-
-        setData(formatted);
-        // Total amount spent
-const total = expenses.reduce((acc, curr) => acc + curr.amount, 0);
-
-// Find category with highest spending
-let maxCategory = '';
-let maxAmount = 0;
-for (const [cat, amt] of Object.entries(categoryTotals)) {
-  if (amt > maxAmount) {
-    maxAmount = amt;
-    maxCategory = cat;
-  }
-}
-
-setTotalSpent(total);
-setTopCategory(maxCategory);
-setTopCategoryAmount(maxAmount);
-        console.log("Formatted data for chart:", formatted);
-      } catch (err) {
-        console.error('Failed to load analytics:', err);
+    let maxCategory = '';
+    let maxAmount = 0;
+    for (const [cat, amt] of Object.entries(categoryTotals)) {
+      if (amt > maxAmount) {
+        maxAmount = amt;
+        maxCategory = cat;
       }
-    };
+    }
 
-    fetchExpenses();
-  }, []);
+    setTopCategory(maxCategory);
+    setTopCategoryAmount(maxAmount);
+  }, [expenses]);
 
   return (
-    <div className="analytics">
+    <div className={`analytics ${darkMode ? 'dark' : ''}`}>
       <h2>Expense Breakdown</h2>
       <p><strong>Total Spent:</strong> ₹{totalSpent}</p>
-<p><strong>Most Spent On:</strong> {topCategory}</p>
-<p><strong>Amount:</strong> ₹{topCategoryAmount}</p>
+      <p><strong>Most Spent On:</strong> {topCategory}</p>
+      <p><strong>Amount:</strong> ₹{topCategoryAmount}</p>
       {data.length === 0 ? (
         <p>No data to show</p>
       ) : (

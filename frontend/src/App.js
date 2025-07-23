@@ -68,7 +68,7 @@ function App() {
       </button>
       <h1 className="header">
         Smart Expense Categorizer<span className="money-emoji" role="img" aria-label="money">💰</span>
-        </h1>
+      </h1>
 
       <form onSubmit={handleSubmit} className="expense-form">
         <input
@@ -133,7 +133,8 @@ function App() {
             );
           })}
         </div>
-        <Analytics darkMode={darkMode} />
+        {/* ✅ Updated Analytics call */}
+        <Analytics darkMode={darkMode} expenses={expenses} />
       </div>
     </div>
   );
