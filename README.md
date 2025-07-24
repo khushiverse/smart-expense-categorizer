@@ -61,7 +61,7 @@ Visual breakdown of spending across categories, helping users stay mindful of ha
 ## 🚀 How to Run Locally  
 ```bash
 # Clone the repository
-git clone https://github.com/khushiverse/your-repo-name.git
+git clone https://github.com/khushiverse/smart-expense-categorizer.git
 
 # Set up Frontend
 cd client
