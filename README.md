@@ -33,7 +33,26 @@ A smart web application that lets users log, visualize, and categorize their dai
 
 ---
 
-## 📸 Screenshots 
+## 📸 Screenshots
+
+### 🧾 Dashboard View  
+This is the main interface where users can enter expenses and see them listed by category.
+
+![Dashboard](./screenshots/sec_dashboard.png)
+
+---
+
+### 🌘 Dark Mode Toggle  
+A smooth toggle lets users switch to dark mode for a sleek, low-light experience.
+
+![Dark Mode](./screenshots/sec_darkmode.png)
+
+---
+
+### 📊 Analytics Pie Chart  
+Visual breakdown of spending across categories, helping users stay mindful of habits.
+
+![Pie Chart](./screenshots/sec_piechart.png)
 
 
 ---
