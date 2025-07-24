@@ -88,6 +88,7 @@ Make sure MongoDB is running and Flask API is served on a separate port!
 ## 🤝 Connect
 
 Started with “this should be easy,” ended with “who needs sleep.” Proud it exists.
+
 Created with ☕ caffeine, and silent screaming by Khushi 👩‍💻
 
 GitHub: @khushiverse
