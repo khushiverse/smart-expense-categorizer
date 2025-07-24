@@ -86,11 +86,14 @@ Make sure MongoDB is running and Flask API is served on a separate port!
  - 🧠 More intelligent category prediction using NLP
 
 ## 🤝 Connect
-Created with ☕ caffeine, chaos, and silent screaming by Khushi 👩‍💻
+
+Started with “this should be easy,” ended with “who needs sleep.” Proud it exists.
+Created with ☕ caffeine, and silent screaming by Khushi 👩‍💻
 
 GitHub: @khushiverse
 
-LinkedIn: https://www.linkedin.com/in/khushi-venkatesh-4654912b5/
+LinkedIn: https://www.linkedin.com/in/khushi-venkatesh
+
 
 
 
